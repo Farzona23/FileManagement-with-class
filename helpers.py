@@ -1,24 +1,12 @@
 import os
-from helpers import FileManagement
 import pathlib
 from pathlib import Path
 
 class FileManagement:
-    def init(self, cwd):
+    def __init__(self, cwd):
         self.cwd = cwd
     
-    def print_menu(self):
-        print("========================================")
-        print("1️ Список файлов в текущем каталоге")
-        print("2️ Создание нового файла")
-        print("3️ Создание новой папки")
-        print("4️ Удаление файла")
-        print("5️ Удаление папки")
-        print("6️ Переименование файла или папки")
-        print("7️ Отображение изображения")
-        print("8️ Изменение текущей папки")
-        print("0️ Выход")
-        print("========================================")
+    
 
     def list_files(self):
         print(f"Listing files at {self.cwd}")
@@ -87,32 +75,4 @@ class FileManagement:
         self.cwd = new_directory
         print(f"Текущая директория изменена на: {new_directory}")
 
-    def run(self):
-        while True:
-            print(f"Текущий каталог: {self.cwd}")
-            self.print_menu()
-            number = input("Введите свой выбор: ")
-
-            if number == "1":
-                self.list_files()
-            elif number == "2":
-                self.create_folder()
-            elif number == "3":
-                self.delete_folder()
-            elif number == "4":
-                self.rename_file()
-            elif number == "5":
-                self.delete_folder()
-            elif number == "6":
-                self.rename_file()
-            elif number == "7":
-                self.show_image()
-            elif number == "8":
-                self.change_directory()
-            elif number == "0":
-                break
-            else:
-                print("Неверный выбор. Пожалуйста, попробуйте еще раз.")
-        
-        file_manager = FileManagement("./")
-        file_manager.run()
+    
